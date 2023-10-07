@@ -21,9 +21,12 @@
     "eslint": "^8.51.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-vue": "^9.17.0",
+    "install": "^0.13.0",
     "multiparty": "^4.2.3",
     "prettier": "^3.0.3",
     "sass": "^1.69.0",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.5"
   }
 }
