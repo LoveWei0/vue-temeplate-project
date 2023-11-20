@@ -15,7 +15,9 @@
     "core-js": "^3.33.0",
     "dayjs": "^1.11.10",
     "element-plus": "^2.3.14",
-    "vue": "^3.3.4"
+    "pinia": "^2.1.7",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
