@@ -28,6 +28,7 @@
     "multiparty": "^4.2.3",
     "prettier": "^3.0.3",
     "sass": "^1.69.0",
+    "sass-loader": "^13.3.2",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.5"
