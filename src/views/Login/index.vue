@@ -9,7 +9,7 @@
     <div class="login-panel">
       <div class="login-logo"></div>
       <div class="login-form">
-        <el-form :rules="loginRules" :model="loginForm" ref="loginFromRef">
+        <el-form :rules="loginRules" :model="loginForm" ref="ruleFormRef">
           <div class="title-container">
             <h3 class="title">管理系统</h3>
           </div>
@@ -42,6 +42,7 @@
               margin-top: 30px;
               height: 40px;
             "
+            :loading="isLoading"
             @click="handleLogin"
             >登录</el-button
           >
@@ -54,7 +55,8 @@
 <script setup>
 import { ref } from 'vue'
 import { validatePassword } from './rule'
-import { axiosInstance } from '../../utils/httpRequest'
+import { LoginService } from '../../api/interface/login.service'
+import { useRouter } from 'vue-router'
 const loginForm = ref({
   username: 'admin',
   password: '123456'
@@ -75,15 +77,18 @@ const loginRules = ref({
     }
   ]
 })
-const loginFormRef = ref(null)
-const params = {
-  username: 'admin',
-  password: '123456'
-}
+const isLoading = ref(false)
+const ruleFormRef = ref()
+const router = useRouter()
 // 登录事件
-const handleLogin = async () => {
-  const result = await axiosInstance.post('/api/login', params)
-  console.log(result)
+const handleLogin = () => {
+  ruleFormRef.value.validate(async valid => {
+    if (!valid) return
+    const result = await LoginService.loginApi(loginForm.value)
+    console.log(result)
+    isLoading.value = true
+    router.push('/')
+  })
 }
 </script>
 

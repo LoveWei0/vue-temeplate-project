@@ -9,7 +9,7 @@
     <template v-if="$route.meta.isNotLayout">
       <RouterView />
     </template>
-    <template>
+    <template v-else>
       <div class="app-wrapper">
         <!-- 左边导航 -->
         <SideBar />
@@ -24,4 +24,15 @@ import { RouterView } from 'vue-router'
 import SideBar from './components/SideBar/index.vue'
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.app-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+</style>
