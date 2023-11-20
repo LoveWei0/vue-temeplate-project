@@ -2,15 +2,14 @@
 * new page
 * @author:loveWei0
 * @since:2023-11-20
-* App.vue
+* index.vue
 -->
 <template>
-  <Layout />
+  sidebar
 </template>
 
 <script setup>
-// import { RouterView } from 'vue-router'
-import Layout from './Layout/index.vue'
+
 </script>
 
 <style scoped></style>
