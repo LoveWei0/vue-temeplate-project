@@ -9,24 +9,42 @@
     <div class="login-panel">
       <div class="login-logo"></div>
       <div class="login-form">
-        <el-form>
+        <el-form :rules="loginRules" :model="loginForm" ref="loginFromRef">
           <div class="title-container">
             <h3 class="title">管理系统</h3>
           </div>
           <div class="input-row">
             <i class="icon icon-user"></i>
-            <el-form-item>
-              <el-input placeholder="请输入用户名" name="username" type="text" />
+            <el-form-item prop="username">
+              <el-input
+                placeholder="请输入用户名"
+                name="username"
+                type="text"
+                v-model.trim="loginForm.username"
+              />
             </el-form-item>
           </div>
           <div class="input-row">
             <i class="icon icon-password"></i>
-            <el-form-item>
-              <el-input placeholder="请输入密码" name="password" />
+            <el-form-item prop="password">
+              <el-input
+                placeholder="请输入密码"
+                name="password"
+                v-model.trim="loginForm.password"
+              />
             </el-form-item>
           </div>
-          <el-button type="primary"
-            style="width: 100%; margin-bottom: 30px; margin-top: 30px; height: 40px;">登录</el-button>
+          <el-button
+            type="primary"
+            style="
+              width: 100%;
+              margin-bottom: 30px;
+              margin-top: 30px;
+              height: 40px;
+            "
+            @click="handleLogin"
+            >登录</el-button
+          >
         </el-form>
       </div>
     </div>
@@ -34,7 +52,39 @@
 </template>
 
 <script setup>
-
+import { ref } from 'vue'
+import { validatePassword } from './rule'
+import { axiosInstance } from '../../utils/httpRequest'
+const loginForm = ref({
+  username: 'admin',
+  password: '123456'
+})
+const loginRules = ref({
+  username: [
+    {
+      required: true,
+      trigger: 'blur',
+      message: '用户名错误'
+    }
+  ],
+  password: [
+    {
+      required: true,
+      trigger: 'blue',
+      validator: validatePassword()
+    }
+  ]
+})
+const loginFormRef = ref(null)
+const params = {
+  username: 'admin',
+  password: '123456'
+}
+// 登录事件
+const handleLogin = async () => {
+  const result = await axiosInstance.post('/api/login', params)
+  console.log(result)
+}
 </script>
 
 <style scoped lang="scss">
@@ -108,21 +158,19 @@
         }
       }
 
-      ::v-deep {
-        .el-input {
-          width: 95%;
-          border: none;
-        }
+      :deep(.el-input) {
+        width: 95%;
+        border: none;
+      }
 
-        .el-form-item {
-          width: 100%;
-          margin-bottom: 0 !important;
-        }
+      .el-form-item {
+        width: 100%;
+        margin-bottom: 0 !important;
+      }
 
-        .el-input__wrapper {
-          border: none;
-          box-shadow: none;
-        }
+      .el-input__wrapper {
+        border: none;
+        box-shadow: none;
       }
     }
   }

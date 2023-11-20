@@ -11,9 +11,11 @@ declare module 'vue' {
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
+    ElFrom: typeof import('element-plus/es')['ElFrom']
     ElInput: typeof import('element-plus/es')['ElInput']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SideBar: typeof import('./layout/components/SideBar/index.vue')['default']
     Simple: typeof import('./components/simple.vue')['default']
   }
 }
