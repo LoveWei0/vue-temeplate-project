@@ -16,8 +16,8 @@
           item.meta.title
         }}</span>
         <!-- 可以点击 -->
-        <a v-else class="redirect">
-          {{ item.meta.title }}
+        <a v-else class="redirect" @click.prevent="onLinkClick(item)">
+          {{ item?.meta.title }}
         </a>
       </el-breadcrumb-item>
     </transition-group>
@@ -27,13 +27,16 @@
 <script setup>
 import { ref, watch } from 'vue'
 const breadcrumbData = ref([])
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
+const router = useRouter()
 const getBreadcrumbData = () => {
-  breadcrumbData.value = route.matched
-    .filter(item => item.meta && item.meta.title)
-    .map(item => item)
-  console.log(breadcrumbData.value)
+  breadcrumbData.value = route.matched.filter(
+    item => item.meta && item.meta.title
+  )
+}
+const onLinkClick = item => {
+  router.push(item)
 }
 watch(
   route,
