@@ -11,7 +11,10 @@
     v-if="route.children?.length && !route.meta?.hidden"
   >
     <template #title>
-      <span>{{ route.meta?.title }}</span>
+      <el-icon v-if="route.meta?.icon">
+        <SvgIcon :icon="route.meta.icon"></SvgIcon>
+      </el-icon>
+      <span class="submenu-title">{{ route.meta?.title }}</span>
     </template>
     <SideBarItem
       v-for="item in route.children"
@@ -31,10 +34,11 @@
           background: '#304156'
         }"
       >
+        <el-icon v-if="route.meta?.icon">
+          <SvgIcon :icon="route.meta?.icon"></SvgIcon>
+        </el-icon>
         <template #title>
-          <span>
-            {{ route.meta?.title }}
-          </span>
+          <span> {{ route.meta?.title }} </span>
         </template>
       </el-menu-item>
     </template>
