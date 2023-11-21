@@ -22,6 +22,10 @@
         background-color="#304156"
         text-color="#bfcbd9"
         active-text-color="#fff"
+        :collapse="!props.sidebarOpened"
+        :collapse-transition="true"
+        :unique-opened="true"
+        router
       >
         <SideBarItem
           v-for="route in menuRoutes"
@@ -71,6 +75,9 @@ const menuRoutes = computed(() => routes)
     line-height: 50px;
     font-size: 16px;
     white-space: nowrap;
+  }
+  ::v-deep(el-menu) {
+    border-right: none !important;
   }
 }
 </style>

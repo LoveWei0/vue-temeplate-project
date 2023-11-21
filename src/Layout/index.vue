@@ -19,6 +19,15 @@
           class="sidebar-container"
           :sidebarOpened="appStore.sidebarOpened"
         />
+        <!-- 右边内容区域 -->
+        <div class="main-container">
+          <!-- 头部 -->
+          <div class="fixed-header">
+            <AppHeader />
+          </div>
+          <!-- 内容区域 -->
+          <!-- <el-scrollbar> <AppMain /></el-scrollbar> -->
+        </div>
       </div>
     </template>
   </el-config-provider>
@@ -28,6 +37,8 @@
 import { RouterView } from 'vue-router'
 // components
 import SideBar from './components/SideBar/index.vue'
+import AppHeader from './components/AppHeader/index.vue'
+// import AppMain from './components/AppMain/index.vue'
 // pinia
 import { useAppStore } from '../store/app'
 const appStore = useAppStore()
@@ -43,6 +54,19 @@ const appStore = useAppStore()
     display: table;
     clear: both;
   }
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  width: calc(100% - 210px);
+  transition: width 0.28s;
+}
+
+.hideSidebar .fixed-header {
+  width: calc(100% - 64px);
 }
 .hideSidebar {
   .sidebar-container {
@@ -62,5 +86,11 @@ const appStore = useAppStore()
   left: 0;
   z-index: 1001;
   overflow: hidden;
+}
+.main-container {
+  height: 100%;
+  transition: margin-left 0.28s;
+  margin-left: 210px;
+  position: relative;
 }
 </style>

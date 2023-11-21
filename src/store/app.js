@@ -8,7 +8,7 @@ export const useAppStore = defineStore('app', {
   },
   actions: {
     toggleSidebar() {
-      this.sidebarOpened != this.sidebarOpened
+      this.sidebarOpened = !this.sidebarOpened
     }
   }
 })
