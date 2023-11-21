@@ -42,7 +42,8 @@ const SystemRouter = {
       component: () => import('../views/System/Resources/index.vue'),
       meta: {
         title: '资源管理',
-        icon: 'permission'
+        icon: 'permission',
+        keepAlive: true
       }
     },
     {
@@ -51,7 +52,8 @@ const SystemRouter = {
       component: () => import('../views/System/Sku/index.vue'),
       meta: {
         title: '商品sku管理',
-        icon: 'permission'
+        icon: 'permission',
+        keepAlive: true
       }
     }
   ]

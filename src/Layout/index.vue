@@ -26,7 +26,7 @@
             <AppHeader />
           </div>
           <!-- 内容区域 -->
-          <!-- <el-scrollbar> <AppMain /></el-scrollbar> -->
+          <el-scrollbar> <AppMain /></el-scrollbar>
         </div>
       </div>
     </template>
@@ -38,7 +38,7 @@ import { RouterView } from 'vue-router'
 // components
 import SideBar from './components/SideBar/index.vue'
 import AppHeader from './components/AppHeader/index.vue'
-// import AppMain from './components/AppMain/index.vue'
+import AppMain from './components/AppMain/index.vue'
 // pinia
 import { useAppStore } from '../store/app'
 const appStore = useAppStore()
