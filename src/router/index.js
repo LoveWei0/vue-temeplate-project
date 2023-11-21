@@ -1,5 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import SystemRouter from './systemRoutes'
 
+// 动态路由
+export const asyncRouter = [SystemRouter]
+
+// 静态路由
 const constantRoutes = [
   {
     path: '/',
@@ -33,7 +38,7 @@ const constantRoutes = [
   }
 ]
 
-export const routes = [...constantRoutes]
+export const routes = [...constantRoutes, ...asyncRouter]
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),

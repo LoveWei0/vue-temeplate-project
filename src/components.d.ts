@@ -7,10 +7,24 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AppHeader: typeof import('./layout/components/AppHeader/index.vue')['default']
+    AppMain: typeof import('./layout/components/AppMain/index.vue')['default']
+    Breadcrumb: typeof import('./layout/components/AppHeader/components/Breadcrumb.vue')['default']
+    ElAvatar: typeof import('element-plus/es')['ElAvatar']
+    ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
+    ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElMenu: typeof import('element-plus/es')['ElMenu']
+    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
+    ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
+    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    Hamburger: typeof import('./layout/components/AppHeader/components/Hamburger.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SideBar: typeof import('./layout/components/SideBar/index.vue')['default']
+    SideBarItem: typeof import('./layout/components/SideBar/SideBarItem.vue')['default']
     Simple: typeof import('./components/simple.vue')['default']
+    SvgIcon: typeof import('./components/SvgIcon/index.vue')['default']
   }
 }
