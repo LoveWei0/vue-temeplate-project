@@ -8,11 +8,14 @@
   <div class="navbar">
     <!-- 左侧折叠 -->
     <Hamburger class="hamburger-container" />
+    <!-- 面包屑 -->
+    <Breadcrumb class="breadcrumb-container" />
   </div>
 </template>
 
 <script setup>
 import Hamburger from './components/Hamburger.vue'
+import Breadcrumb from './components/Breadcrumb.vue'
 </script>
 
 <style scoped lang="scss">
