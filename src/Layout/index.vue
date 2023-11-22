@@ -24,6 +24,7 @@
           <!-- 头部 -->
           <div class="fixed-header">
             <AppHeader />
+            <TagsView />
           </div>
           <!-- 内容区域 -->
           <el-scrollbar> <AppMain /></el-scrollbar>
@@ -39,6 +40,7 @@ import { RouterView } from 'vue-router'
 import SideBar from './components/SideBar/index.vue'
 import AppHeader from './components/AppHeader/index.vue'
 import AppMain from './components/AppMain/index.vue'
+import TagsView from './components/TagsView/index.vue'
 // pinia
 import { useAppStore } from '../store/app'
 const appStore = useAppStore()

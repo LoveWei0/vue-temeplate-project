@@ -53,7 +53,6 @@ const props = defineProps({
   }
 })
 const route = useRoute()
-console.log(route.path)
 const activeMenu = computed(() => {
   return route.path
 })
